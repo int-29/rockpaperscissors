@@ -47,11 +47,12 @@ function playRound(humanChoice, computerChoice) {
 let humanScore = 0
 let computerScore = 0
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice()
+
 
 function playGame() {
     for (let i = 1; i <=5; i++) {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice()
         playRound(humanSelection, computerSelection)
     }
 
