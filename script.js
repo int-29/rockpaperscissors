@@ -60,9 +60,9 @@ function playGame() {
 
     if (computerScore > humanScore) {
         console.log('The Computer Wins!');
-    } else {
+    } else if (humanScore > computerScore) {
         console.log('You Win!');
-    }
+    } else {"It's a draw!"}
 }
 
 playGame()
