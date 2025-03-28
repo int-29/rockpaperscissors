@@ -1,7 +1,6 @@
 function getComputerChoice() {
     computerChoice = ""
     choice = (Math.floor(Math.random() * 100));
-    console.log(choice)
     if (choice >=0 && choice <=33) {
         computerChoice = "Rock"
     } else if (choice > 33 && choice <= 66) {
@@ -24,17 +23,21 @@ function playRound(humanChoice, computerChoice) {
         humanScore += 1
     } else if (humanChoice == 'rock' && computerChoice == 'Paper') {
         console.log('You lose! Paper beats rock!')
-        computerScore +=1
+        computerScore += 1
 
     } else if (humanChoice == 'paper' && computerChoice == 'Scissors') {
         console.log('You lose! Scissors cuts paper!')
+        computerScore += 1
     } else if (humanChoice == 'paper' && computerChoice == 'Rock') {
         console.log('You Win! Paper beats rock!')
+        humanScore += 1
 
     } else if (humanChoice == 'scissors' && computerChoice == 'Paper') {
         console.log('You Win! Scissors cuts paper!')
+        humanScore += 1
     } else if (humanChoice == 'scissors' && computerChoice == 'Rock') {
         console.log('You lose! Rock beats scissors!')
+        computerScore += 1
     } else {
         console.log("It's a tie!")
     }
@@ -47,4 +50,16 @@ let computerScore = 0
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice()
 
-playRound(humanSelection, computerSelection)
+function playGame() {
+    for (let i = 1; i <=5; i++) {
+        playRound(humanSelection, computerSelection)
+    }
+
+    if (computerScore > humanScore) {
+        console.log('The Computer Wins!')
+    } else {
+        console.log('You Win!')
+    }
+}
+
+playGame()
