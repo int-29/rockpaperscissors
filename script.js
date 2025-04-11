@@ -87,6 +87,9 @@ function playGame(humanChoice) {
     } else {
         winner.textContent = 'Winner: Computer!';
     }
+    button_rock.disabled = true;
+    button_paper.disabled = true;
+    button_scissors.disabled = true;
 }}
 
 
