@@ -13,24 +13,24 @@ function getComputerChoice() {
 
 
 function playRound(humanChoice, computerChoice) {
-    if (humanChoice === 'rock' && computerChoice === 'Scissors') {
+    if (humanChoice === 'Rock' && computerChoice === 'Scissors') {
         console.log('You WIN! Rock beats scissors!');
         humanScore += 1;
-    } else if (humanChoice === 'rock' && computerChoice === 'Paper') {
+    } else if (humanChoice === 'Rock' && computerChoice === 'Paper') {
         console.log('You lose! Paper beats rock!');
         computerScore += 1;
 
-    } else if (humanChoice === 'paper' && computerChoice === 'Scissors') {
+    } else if (humanChoice === 'Paper' && computerChoice === 'Scissors') {
         console.log('You lose! Scissors cuts paper!');
         computerScore += 1;
-    } else if (humanChoice === 'paper' && computerChoice === 'Rock') {
+    } else if (humanChoice === 'Paper' && computerChoice === 'Rock') {
         console.log('You Win! Paper beats rock!');
         humanScore += 1;
 
-    } else if (humanChoice === 'scissors' && computerChoice === 'Paper') {
+    } else if (humanChoice === 'Scissors' && computerChoice === 'Paper') {
         console.log('You Win! Scissors cuts paper!');
         humanScore += 1;
-    } else if (humanChoice === 'scissors' && computerChoice === 'Rock') {
+    } else if (humanChoice === 'Scissors' && computerChoice === 'Rock') {
         console.log('You lose! Rock beats scissors!');
         computerScore += 1;
     } else {
@@ -67,16 +67,24 @@ const computerResult = document.createElement('p');
 computerResult.textContent = 'Computer: ' + computerScore;
 results.appendChild(computerResult);
 
+const roundHumanChoice = document.createElement('p');
+results.appendChild(roundHumanChoice);
+
+const roundComputerChoice = document.createElement('p');
+results.appendChild(roundComputerChoice);
+
 const winner = document.createElement('p');
 winner.textContent = 'Winner: ';
 results.appendChild(winner);
-
-
 
 function playGame(humanChoice) {
     if (game_over) return;
     const computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice)
+
+    roundHumanChoice.textContent = 'You chose: ' + humanChoice;
+    roundComputerChoice.textContent = 'Computer chose: ' + computerChoice
+
     humanResult.textContent = 'You: ' + humanScore;
     computerResult.textContent = 'Computer: ' + computerScore;
 
@@ -94,13 +102,13 @@ function playGame(humanChoice) {
 
 
 button_rock.addEventListener('click', () => {
-    playGame('rock')
+    playGame('Rock')
 })
 
 button_paper.addEventListener('click', () => {
-    playGame('paper');
+    playGame('Paper');
 })
 
 button_scissors.addEventListener('click', () => {
-    playGame('scissors');
+    playGame('Scissors');
 })
